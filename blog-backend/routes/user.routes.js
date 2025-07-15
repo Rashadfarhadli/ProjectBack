@@ -2,17 +2,17 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
-// ✅ İstifadəçi əlavə etmək (Register) - POST /api/users
+
 router.post("/", async (req, res) => {
   try {
     const { fullName, gmail, password, role } = req.body;
 
-    // gmail və password yoxlanışı
+    
     if (!gmail || !password) {
       return res.status(400).json({ error: "gmail və şifrə tələb olunur" });
     }
 
-    // gmail artıq mövcuddursa
+ 
     const existingUser = await User.findOne({ gmail });
     if (existingUser) {
       return res.status(409).json({ error: "Bu gmail artıq qeydiyyatdan keçib" });
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ Bütün istifadəçiləri gətir - GET /api/users
+
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// ✅ İstifadəçini ID ilə gətir - GET /api/users/:id
+
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
