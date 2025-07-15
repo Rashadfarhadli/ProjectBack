@@ -1,0 +1,7 @@
+REGISTER POST SORGUSU : http://localhost:5000/api/users +
+
+LOGIN POST SORGUSU : http://localhost:5000/api/auth/login +
+
+GET SORGUSU : http://localhost:5000/api/users +
+
+GET SORGUSU ID : http://localhost:5000/api/users/
